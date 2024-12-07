@@ -3,12 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="shortcut icon" type="image/png" href="/icon.png" />
+    <title>Symbol Translator</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="container">
+      <h1>Symbol Translator</h1>
+      
+      <!-- Display Area -->
+      <div id="sentence-display" class="display-area">
+          <p id="sentence">Your sentence will appear here...</p>
+      </div>
 
+      <!-- Keyboard -->
+      <div class="keyboard">
+          <button class="key" data-symbol="symbol1">
+              <img src="symbols/symbol1.png" alt="Symbol 1">
+          </button>
+          <button class="key" data-symbol="symbol2">
+              <img src="symbols/symbol2.png" alt="Symbol 2">
+          </button>
+          <button class="key" data-symbol="symbol3">
+              <img src="symbols/symbol3.png" alt="Symbol 3">
+          </button>
+          <!-- Add more keys as needed -->
+      </div>
 
+      <!-- Translate Button -->
+      <button id="translate-button" class="translate-button">Translate</button>
+  </div>
 
+  <script src="script.js"></script>
   </body>
 </html>
