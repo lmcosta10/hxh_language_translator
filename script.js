@@ -18,11 +18,20 @@ keys.forEach((key) => {
 
 // Update the sentence display
 function updateSentenceDisplay() {
+    // Clear the display
+    sentenceDisplay.innerHTML = '';
+
     if (currentSentence.length === 0) {
         sentenceDisplay.textContent = 'Your sentence will appear here...';
     } else {
-        sentenceDisplay.textContent = currentSentence.join(' ');
+        currentSentence.forEach((symbol) => {
+            const img = document.createElement('img');
+            img.src = `symbols/${symbol}.png`;
+            sentenceDisplay.appendChild(img);
+        });
     }
+
+    console.log(currentSentence);
 }
 
 // Simulate a translation process
@@ -32,17 +41,5 @@ translateButton.addEventListener('click', () => {
         return;
     }
 
-    const translation = translateSentence(currentSentence);
-    alert(`Translation: ${translation}`);
+    alert(`Translation: ${currentSentence.join("")}`);
 });
-
-// Translation function (mock implementation)
-function translateSentence(sentenceArray) {
-    const symbolDictionary = {
-        symbol1: 'Hello',
-        symbol2: 'World',
-        symbol3: '!',
-    };
-
-    return sentenceArray.map((symbol) => symbolDictionary[symbol] || '[Unknown]').join(' ');
-}
