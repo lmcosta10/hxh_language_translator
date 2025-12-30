@@ -2,6 +2,8 @@
 const keyboard = document.querySelector('.keyboard');
 const sentenceDisplay = document.getElementById('sentence');
 const translateButton = document.getElementById('translate-button');
+const translatedText = document.getElementById('translated-text');
+const deleteButton = document.getElementById('delete-button');
 
 // Sentence storage
 let currentSentence = [];
@@ -50,14 +52,23 @@ function updateSentenceDisplay() {
     }
 }
 
-// Simulate a translation process
+// Translation
 translateButton.addEventListener('click', () => {
     if (currentSentence.length === 0) {
         alert('Please select some symbols to translate.');
         return;
     }
 
-    alert(`Translation: ${currentSentence.join("")}`);
+    // Get romanized text
+    translatedText.textContent = currentSentence.join("");
+
+    // TODO: romanized to eng?
+});
+
+// Remove last symbol
+deleteButton.addEventListener('click', () => {
+    currentSentence.pop();
+    updateSentenceDisplay();
 });
 
 createKeyboard();
